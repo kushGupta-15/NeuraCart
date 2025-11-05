@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import { v2 as cloudinary } from "cloudinary";
 import { createTables } from "./utils/createTables.js";
+import authRouter from "./router/authRoutes.js";
 
 
 dotenv.config();
@@ -28,7 +29,9 @@ app.use(
     })
 );
 
-createTables();
+app.use("/api/v1/auth", authRouter);
+
+// createTables();
 
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLIENT_NAME,
