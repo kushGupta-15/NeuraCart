@@ -6,6 +6,7 @@ import fileUpload from "express-fileupload";
 import { v2 as cloudinary } from "cloudinary";
 import { createTables } from "./utils/createTables.js";
 import authRouter from "./router/authRoutes.js";
+import productRouter from "./router/productRoutes.js";
 
 
 dotenv.config();
@@ -30,6 +31,7 @@ app.use(
 );
 
 app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/product", productRouter);
 
 // createTables();
 
